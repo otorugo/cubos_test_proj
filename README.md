@@ -1,6 +1,12 @@
 # Desafio técnico - Cubos DevOps
 
-    Este é o trabalho do teste técnico de **Victor Hugo Oliveira da Silva** 
+    Este é o trabalho do teste técnico de **Victor Hugo Oliveira da Silva**
+
+
+## Apps and Infra repo
+
+- https://github.com/otorugo/infra_test
+- https://github.com/otorugo/cubos_test
 
 ## Pré-requisitos
 - Docker
