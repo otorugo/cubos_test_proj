@@ -1,0 +1,32 @@
+services:
+  postgres:
+    container_name: postgres-db
+    restart: always
+    image: postgres:15.4
+    ports:
+      - 5432:5432
+    volumes:
+      - ./sql/script.sql:/docker-entrypoint-initdb.d/script.sql
+      - ./postgresql_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  backend:
+    depends_on:
+      - postgres
+    container_name: cubos_backend
+    restart: always
+    image: cubos_backend
+    ports:
+      - 8080:80
+  frontend:
+    depends_on:
+      - backend
+    container_name: cubos_frontend
+    restart: always
+    image: cubos_frontend
+    ports:
+      - 80:80
+
+networks:
+  localnet:
+    driver: bridge
